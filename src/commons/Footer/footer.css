@@ -1,0 +1,46 @@
+.site-footer {
+  padding: 40px 80px 60px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.footer-brand h2 {
+  font-size: 20px;
+  letter-spacing: 0.14em;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 80px;
+  font-size: 12px;
+}
+
+.footer-column h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li + li {
+  margin-top: 4px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.footer-column a:hover {
+  color: #000000;
+}
+
+

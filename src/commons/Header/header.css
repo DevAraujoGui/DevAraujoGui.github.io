@@ -1,0 +1,39 @@
+/* CSS do Header */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.main-nav a:hover {
+  color: #000000;
+}
+
