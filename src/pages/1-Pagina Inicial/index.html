@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Godoi - Página Inicial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../commons/Header/header.css">
+    <link rel="stylesheet" href="../../commons/Footer/footer.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-header-container"></div>
+
+    <main>
+      <section class="hero">
+        <img class="hero-image fade-up-element" src="../../assets/Pagina Inicial/Moveis-Inicio.jpg" alt="Móveis Godoi" />
+        <div class="hero-text fade-up-element">
+          <h1>Descubra a Arte do Mobiliário de Alto Padrão</h1>
+          <p>Produzido com precisão, desenhado com paixão.</p>
+        </div>
+      </section>
+
+      <!-- Faixa Divisória -->
+      <div class="section-divider fade-up-element">
+        <div class="divider-content">
+          <span>DESIGN AUTÊNTICO</span>
+          <span class="divider-bullet">&bull;</span>
+          <span>ALTO PADRÃO</span>
+          <span class="divider-bullet">&bull;</span>
+          <span>FEITO NO BRASIL</span>
+        </div>
+      </div>
+
+      <section class="categories-section">
+        <div class="categories-header">
+          <div class="header-left fade-right">
+            <span class="small-line"></span>
+            <h2>CONHEÇA NOSSOS MÓVEIS</h2>
+            <p>Impressionantes em estilo, qualidade e funcionalidade</p>
+          </div>
+          <div class="header-right fade-left">
+            <span class="big-number">+270</span>
+            <span class="number-label">opções disponíveis</span>
+          </div>
+        </div>
+
+        <div class="categories-grid">
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Sofás Externos</div>
+            <h3>SOFÁS EXTERNOS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Poltronas</div>
+            <h3>POLTRONAS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Cadeiras</div>
+            <h3>CADEIRAS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Bancos</div>
+            <h3>BANCOS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Mesas</div>
+            <h3>MESAS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Conjuntos</div>
+            <h3>CONJUNTOS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Espreguiçadeiras</div>
+            <h3>ESPREGUIÇADEIRAS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Daybeds</div>
+            <h3>DAYBEDS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Balanços</div>
+            <h3>BALANÇOS</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Ombrelones</div>
+            <h3>OMBRELONES</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Mesas Laterais</div>
+            <h3>MESAS LATERAIS E CENTRO</h3>
+          </div>
+          <div class="category-item fade-up-element">
+            <div class="cat-image-placeholder">Pufes</div>
+            <h3>PUFES E COMPLEMENTOS</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              // Adiciona um pequeno delay baseado na ordem para efeito cascata em grids
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, index * 50); // 50ms de delay entre elementos se aparecerem juntos
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.fade-up-element, .fade-right, .fade-left');
+        animatedElements.forEach(el => observer.observe(el));
+      });
+    </script>
+
+    <footer class="site-footer"></footer>
+    <script src="../../commons/Header/header.js"></script>
+    <script src="../../commons/Footer/footer.js"></script>
+  </body>
+</html>
+
+
