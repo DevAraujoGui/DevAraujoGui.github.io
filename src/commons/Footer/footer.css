@@ -1,11 +1,12 @@
 .site-footer {
   padding: 40px 80px 60px;
   border-top: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
 .footer-inner {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* Centraliza verticalmente logo/texto com as colunas */
   justify-content: space-between;
   max-width: 1120px;
   margin: 0 auto;
@@ -49,11 +50,39 @@
 
 .footer-column a {
   text-decoration: none;
-  color: #333333;
+  color: var(--color-text);
 }
 
 .footer-column a:hover {
-  color: #000000;
+  color: var(--color-primary);
+}
+
+/* Animação de entrada (Direita para Esquerda) */
+.footer-anim-left {
+  opacity: 0;
+  transform: translateX(50px);
+  filter: blur(4px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.footer-anim-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* Animação de entrada (Esquerda para Direita) */
+.footer-anim-right {
+  opacity: 0;
+  transform: translateX(-50px);
+  filter: blur(4px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.footer-anim-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
 }
 
 

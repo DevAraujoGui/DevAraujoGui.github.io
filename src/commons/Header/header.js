@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Forçar o scroll para o topo ao recarregar
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   const headerContainer = document.querySelector(".site-header-container");
   
   // Lógica de transição de páginas

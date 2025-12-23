@@ -87,7 +87,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
   pointer-events: none;
 }
 
@@ -134,41 +134,57 @@ body {
 }
 
 /* Faixa Divisória */
+/* Faixa Divisória (Marquee) */
 .section-divider {
   width: 100%;
   background-color: var(--color-primary); /* Verde Sálvia */
   padding: 32px 0;
   margin: 0px 0 100px; /* Remove margin-top to touch hero */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* Essencial para o marquee */
+  position: relative;
+  white-space: nowrap;
+  display: flex; /* Garante que o track flua corretamente */
 }
 
-.divider-content {
+.marquee-track {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 60px; /* Espaço entre os itens */
+  /* Largura é automática baseada no conteúdo */
+  animation: scrollText 40s linear infinite;
+  padding-left: 60px;
+}
+
+/* Duplicado para loop infinito */
+.marquee-track span {
   color: #FFFFFF;
   font-size: 14px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-weight: 300;
-  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .divider-bullet {
   opacity: 0.5;
   font-size: 10px;
+  color: #FFFFFF;
 }
 
-@media (max-width: 768px) {
-  .divider-content {
-    flex-direction: column;
-    gap: 12px;
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
   }
-  .divider-bullet {
-    display: none;
+  100% {
+    transform: translateX(-50%); /* Move metade (o loop completo) */
+  }
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+  .marquee-track {
+    gap: 32px;
+    animation-duration: 30s;
   }
 }
 
@@ -237,10 +253,23 @@ body {
 }
 
 /* Grid de Produtos */
+/* Grid de Produtos - Estilo Clean */
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 40px 24px;
+  grid-template-columns: repeat(5, 1fr); /* Tenta forçar 5 colunas */
+  gap: 60px 20px; /* Mais espaço vertical, menos horizontal */
+}
+
+@media (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .category-item {
@@ -251,39 +280,49 @@ body {
   cursor: pointer;
 }
 
-.cat-image-placeholder {
+/* Novo Container de Imagem (Estilo Recortado/Clean) */
+.cat-image-container {
   width: 100%;
-  aspect-ratio: 1;
-  background-color: #F0F0EB; /* Tom bege/cinza quente */
-  border-radius: 4px; /* Menos arredondado, mais arquitetônico */
+  aspect-ratio: 4/3; /* Levemente retangular horizontal para móveis */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-secondary);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-  transition: all 0.4s ease;
-  /* Removed border and shadow for cleaner look */
+  margin-bottom: 24px;
+  transition: transform 0.4s ease;
+  overflow: hidden; /* Garante que a imagem respeite o container */
+  border-radius: 4px; /* Suave arredondamento */
+  background-color: #F9F9F9; /* Fundo padrão caso a imagem demore */
 }
 
-.category-item:hover .cat-image-placeholder {
-  background-color: #E8E8E2; /* Darken slightly on hover */
-  transform: translateY(-5px);
+.cat-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche todo o espaço uniformemente */
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.category-item:hover .cat-image-container,
+.category-item:hover h3 {
+  transform: translateY(-8px);
+}
+
+.category-item:hover .cat-image-container img {
+  transform: scale(1.05); /* Zoom suave na imagem ao passar o mouse */
 }
 
 .category-item h3 {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400; /* Mais leve */
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: #666666;
-  transition: color 0.3s;
+  margin: 0;
+  transition: color 0.3s, transform 0.4s ease;
 }
 
 .category-item:hover h3 {
-  color: var(--color-text);
+  color: var(--color-primary); /* Destaque sutil na cor da marca */
 }
 
 /* Animação ao Scroll */
@@ -324,6 +363,171 @@ body {
   opacity: 1;
   transform: translateX(0);
   filter: blur(0);
+}
+
+/* Wrapper com Fundo Diferenciado (Quebra Visual) */
+.concept-wrapper {
+  width: 100%;
+  background-color: #F5F5F0; /* Tom Areia/Cinza Quente Sofisticado */
+  padding: 100px 0;
+  margin-top: 100px; /* Distância da grid de produtos */
+}
+
+.design-wrapper {
+  width: 100%;
+  background-color: #FFFFFF; /* Fundo Branco para alternar */
+  padding: 100px 0;
+}
+
+/* Seção Conceito (Split Layout) */
+.concept-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto; /* Centralizado no wrapper */
+  padding: 0 24px;
+  gap: 80px;
+}
+
+.concept-image {
+  flex: 1;
+  height: 600px;
+  position: relative;
+}
+
+.concept-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sombra suave para profundidade */
+}
+
+.concept-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.concept-text h2 {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.concept-text p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.btn-link {
+  display: inline-block;
+  padding-bottom: 4px;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s;
+}
+
+.btn-link:hover {
+  opacity: 0.7;
+  padding-bottom: 8px; /* Efeito visual de 'levantar' */
+}
+
+/* Seção CTA (Chamada para Ação) */
+.cta-section {
+  background-color: var(--color-primary); /* Fundo Verde Sálvia */
+  padding: 100px 24px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 0; /* Cola no footer */
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 42px;
+  font-weight: 300;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.cta-content p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  padding: 16px 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+/* Responsividade para novas seções */
+@media (max-width: 900px) {
+  .concept-wrapper, .design-wrapper {
+    padding: 60px 0; 
+    margin-top: 0;
+  }
+
+  /* Aplica margem apenas no primeiro se estiverem colados */
+  .concept-wrapper {
+    margin-top: 60px;
+  }
+
+  .concept-section {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  /* Garante imagem no topo no mobile para a seção invertida */
+  .concept-section.reverse {
+    flex-direction: column-reverse;
+  }
+
+  .concept-image {
+    width: 100%;
+    height: 350px; /* Altura ajustada para telas menores */
+  }
+
+  .concept-text {
+    text-align: center;
+  }
+
+  .cta-section {
+    padding: 60px 24px;
+  }
+
+  .cta-content h2 {
+    font-size: 32px;
+  }
 }
 
 .site-footer {
