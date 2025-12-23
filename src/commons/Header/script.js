@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileMenuToggle.addEventListener('click', () => {
           mobileMenuToggle.classList.toggle('active');
           mainNav.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
         });
 
         // Fechar menu ao clicar em um link
@@ -83,18 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
           link.addEventListener('click', () => {
             mobileMenuToggle.classList.remove('active');
             mainNav.classList.remove('active');
-            document.body.classList.remove('menu-open');
           });
         });
 
-        // Fechar menu ao clicar no overlay (body)
-        document.body.addEventListener('click', (e) => {
-          if (document.body.classList.contains('menu-open') && 
-              !mainNav.contains(e.target) && 
-              !mobileMenuToggle.contains(e.target)) {
+        // Fechar menu ao clicar no overlay
+        mainNav.addEventListener('click', (e) => {
+          if (e.target === mainNav || e.target.classList.contains('main-nav')) {
             mobileMenuToggle.classList.remove('active');
             mainNav.classList.remove('active');
-            document.body.classList.remove('menu-open');
           }
         });
       }

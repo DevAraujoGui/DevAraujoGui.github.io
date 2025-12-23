@@ -136,73 +136,54 @@ body.fade-out {
   animation: fadeOut 0.3s cubic-bezier(0.2, 0, 0.2, 1) forwards;
 }
 
-/* Mobile Menu Toggle (Hamburger Premium) */
+/* Mobile Menu Toggle (Hamburger) */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
+  justify-content: space-between;
+  width: 28px;
+  height: 21px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 1001;
-  position: relative;
 }
 
 .mobile-menu-toggle span {
   display: block;
-  width: 24px;
+  width: 100%;
   height: 2px;
   background-color: var(--color-text);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s ease;
   border-radius: 2px;
-  position: absolute;
-}
-
-.mobile-menu-toggle span:nth-child(1) {
-  top: 12px;
-}
-
-.mobile-menu-toggle span:nth-child(2) {
-  top: 19px;
-}
-
-.mobile-menu-toggle span:nth-child(3) {
-  top: 26px;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
-  top: 19px;
-  transform: rotate(45deg);
+  transform: translateY(9.5px) rotate(45deg);
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
   opacity: 0;
-  transform: translateX(20px);
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-  top: 19px;
-  transform: rotate(-45deg);
+  transform: translateY(-9.5px) rotate(-45deg);
 }
 
-/* Responsividade Mobile Premium */
+/* Responsividade Mobile */
 @media (max-width: 768px) {
   .site-header {
-    padding: 20px 24px;
+    padding: 16px 24px;
   }
 
   .logo {
-    font-size: 20px;
-    z-index: 1001;
+    font-size: 18px;
   }
 
   .logo-icon {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 
   .mobile-menu-toggle {
@@ -213,14 +194,13 @@ body.fade-out {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 100%;
+    width: 280px;
     height: 100vh;
-    background: linear-gradient(135deg, var(--color-bg) 0%, #f0efe8 100%);
-    padding: 100px 40px 40px;
-    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+    background-color: var(--color-bg);
+    padding: 80px 32px 32px;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.1);
     z-index: 1000;
-    overflow-y: auto;
   }
 
   .main-nav.active {
@@ -229,86 +209,45 @@ body.fade-out {
 
   .main-nav ul {
     flex-direction: column;
-    gap: 0;
-    align-items: center;
+    gap: 24px;
+    align-items: flex-start;
   }
-
-  .main-nav li {
-    width: 100%;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.4s ease;
-  }
-
-  .main-nav.active li {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .main-nav.active li:nth-child(1) { transition-delay: 0.1s; }
-  .main-nav.active li:nth-child(2) { transition-delay: 0.15s; }
-  .main-nav.active li:nth-child(3) { transition-delay: 0.2s; }
-  .main-nav.active li:nth-child(4) { transition-delay: 0.25s; }
-  .main-nav.active li:nth-child(5) { transition-delay: 0.3s; }
 
   .main-nav a {
-    font-size: 24px;
-    font-weight: 300;
-    padding: 20px 0;
-    display: block;
-    text-align: center;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 16px;
+    padding: 8px 0;
   }
 
-  .main-nav a::after {
-    display: none;
-  }
-
-  .main-nav a:hover {
-    color: var(--color-primary);
-    transform: translateX(8px);
-  }
-
-  /* Overlay escuro quando menu está aberto */
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  body.menu-open::before {
+  /* Overlay quando menu está aberto */
+  .main-nav.active::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 999;
-    animation: fadeIn 0.3s ease;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
   }
 }
 
 @media (max-width: 480px) {
   .site-header {
-    padding: 16px 20px;
+    padding: 12px 16px;
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .logo-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .main-nav {
-    padding: 80px 32px 32px;
-  }
-
-  .main-nav a {
-    font-size: 20px;
-    padding: 16px 0;
+    width: 100%;
+    right: -100%;
   }
 }
 
