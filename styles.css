@@ -502,6 +502,11 @@ body {
 
 /* Responsividade Mobile */
 @media (max-width: 768px) {
+  /* Remove o gradiente do header no mobile */
+  .site-header {
+    background: none !important;
+  }
+
   /* Hero Section Mobile - Imagem maior e texto centralizado */
   .hero {
     height: 100vh; /* Cobre toda a tela */
