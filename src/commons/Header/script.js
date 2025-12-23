@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!headerContainer) return;
 
   // Tenta carregar o header de dois caminhos possíveis (raiz ou subpasta)
-  const headerPath = window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/') 
+  const isRoot = window.location.pathname === '/' || 
+                 window.location.pathname.endsWith('/index.html') || 
+                 window.location.pathname.endsWith('/') && !window.location.pathname.includes('/src/');
+  
+  const headerPath = isRoot 
     ? "src/commons/Header/index.html" 
     : "../../commons/Header/index.html";
 
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.text())
     .then((html) => {
       // Se estivermos na raiz, precisamos ajustar os caminhos internos do index.html (header)
-      if (window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/')) {
+      if (isRoot) {
         html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
         html = html.replace(/href="\.\.\/\.\.\/\.\.\/index\.html"/g, 'href="index.html"');
         html = html.replace(/href="\.\.\//g, 'href="src/pages/');

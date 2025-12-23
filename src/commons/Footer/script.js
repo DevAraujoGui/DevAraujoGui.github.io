@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector(".site-footer");
   if (!footer) return;
 
-  const footerPath = window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/') 
+  const isRoot = window.location.pathname === '/' || 
+                 window.location.pathname.endsWith('/index.html') || 
+                 window.location.pathname.endsWith('/') && !window.location.pathname.includes('/src/');
+
+  const footerPath = isRoot 
     ? "src/commons/Footer/index.html" 
     : "../../commons/Footer/index.html";
 
@@ -10,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.text())
     .then((html) => {
       // Ajuste de caminhos se estiver na raiz
-      if (window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/')) {
+      if (isRoot) {
         html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
       }
       footer.innerHTML = html;
