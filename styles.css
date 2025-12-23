@@ -60,7 +60,7 @@ body {
 }
 
 .site-header.header-scrolled .logo-icon {
-  content: url("../../assets/logo/SVG/SÍMBOLO-4.svg"); /* Troca para a logo escura/alternativa */
+  content: url("src/assets/logo/SVG/SÍMBOLO-4.svg"); /* Troca para a logo escura/alternativa */
 }
 
 .site-header.header-scrolled .main-nav a::after {

@@ -33,9 +33,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!headerContainer) return;
 
-  fetch("../../commons/Header/header.html")
+  // Tenta carregar o header de dois caminhos possíveis (raiz ou subpasta)
+  const headerPath = window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/') 
+    ? "src/commons/Header/header.html" 
+    : "../../commons/Header/header.html";
+
+  fetch(headerPath)
     .then((response) => response.text())
     .then((html) => {
+      // Se estivermos na raiz, precisamos ajustar os caminhos internos do header.html
+      if (window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/')) {
+        html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
+        html = html.replace(/href="\.\.\/\.\.\/\.\.\/index\.html"/g, 'href="index.html"');
+        html = html.replace(/href="\.\.\//g, 'href="src/pages/');
+      }
+      
       headerContainer.innerHTML = html;
       
       // Lógica de Header Sticky/Scrolled

@@ -2,9 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector(".site-footer");
   if (!footer) return;
 
-  fetch("../../commons/Footer/footer.html")
+  const footerPath = window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/') 
+    ? "src/commons/Footer/footer.html" 
+    : "../../commons/Footer/footer.html";
+
+  fetch(footerPath)
     .then((response) => response.text())
     .then((html) => {
+      // Ajuste de caminhos se estiver na raiz
+      if (window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/')) {
+        html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
+      }
       footer.innerHTML = html;
 
       // Animação de entrada dos elementos do footer
