@@ -71,16 +71,15 @@ body {
 .hero {
   max-width: 100%;
   margin: 0;
-  height: 65vh; /* Altura reduzida consideravelmente */
+  height: 65vh;
   position: relative;
   overflow: hidden;
-  display: flex; /* Para alinhar o conteúdo */
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero::after {
-  /* Overlay escuro para contraste do texto */
   content: '';
   position: absolute;
   top: 0;
@@ -116,11 +115,11 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 48px; /* Maior impacto */
+  font-size: 48px;
   font-weight: 300;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
-  color: #FFFFFF; /* Texto branco no hero */
+  color: #FFFFFF;
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
@@ -488,45 +487,293 @@ body {
   color: #FFFFFF;
 }
 
-/* Responsividade para novas seções */
-@media (max-width: 900px) {
-  .concept-wrapper, .design-wrapper {
-    padding: 60px 0; 
-    margin-top: 0;
+/* Responsividade Mobile Premium */
+@media (max-width: 768px) {
+  /* Hero Section Mobile - Mais Impactante */
+  .hero {
+    height: 100vh;
+    min-height: 600px;
   }
 
-  /* Aplica margem apenas no primeiro se estiverem colados */
+  .hero-text {
+    padding: 0 32px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Marquee Mobile */
+  .section-divider {
+    padding: 24px 0;
+    margin-bottom: 60px;
+  }
+
+  .marquee-track span {
+    font-size: 12px;
+  }
+
+  /* Categories Section Mobile - Layout Melhorado */
+  .categories-section {
+    margin-bottom: 80px;
+    padding: 0 24px;
+  }
+
+  .categories-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    gap: 32px;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .small-line {
+    width: 48px;
+  }
+
+  .header-left h2 {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  .header-left p {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .big-number {
+    font-size: 48px;
+  }
+
+  .number-label {
+    font-size: 15px;
+  }
+
+  /* Grid de Categorias - 2 Colunas com Melhor Espaçamento */
+  .categories-grid {
+    gap: 40px 16px;
+  }
+
+  .cat-image-container {
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .category-item h3 {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Concept Sections Mobile - Mais Espaçoso */
+  .concept-wrapper, .design-wrapper {
+    padding: 60px 0;
+  }
+
   .concept-wrapper {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 
   .concept-section {
     flex-direction: column;
-    margin: 0 auto;
     gap: 40px;
     padding: 0 24px;
   }
 
-  /* Garante imagem no topo no mobile para a seção invertida */
   .concept-section.reverse {
     flex-direction: column-reverse;
   }
 
   .concept-image {
     width: 100%;
-    height: 350px; /* Altura ajustada para telas menores */
+    height: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .concept-image img {
+    border-radius: 8px;
   }
 
   .concept-text {
-    text-align: center;
+    text-align: left;
+    max-width: 100%;
   }
 
+  .concept-text h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .concept-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .btn-link {
+    font-size: 13px;
+  }
+
+  /* CTA Section Mobile - Mais Chamativo */
   .cta-section {
     padding: 60px 24px;
   }
 
   .cta-content h2 {
     font-size: 32px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .cta-content p {
+    font-size: 17px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .btn-primary {
+    padding: 16px 40px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero Section Small Mobile */
+  .hero {
+    height: 100vh;
+    min-height: 550px;
+  }
+
+  .hero-text {
+    padding: 0 24px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .hero-text p {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Marquee Small Mobile */
+  .section-divider {
+    padding: 20px 0;
+    margin-bottom: 48px;
+  }
+
+  .marquee-track span {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  /* Categories Section Small Mobile */
+  .categories-section {
+    padding: 0 20px;
+    margin-bottom: 60px;
+  }
+
+  .categories-header {
+    margin-bottom: 40px;
+    gap: 24px;
+  }
+
+  .header-left h2 {
+    font-size: 18px;
+  }
+
+  .header-left p {
+    font-size: 13px;
+  }
+
+  .big-number {
+    font-size: 40px;
+  }
+
+  .number-label {
+    font-size: 14px;
+  }
+
+  .categories-grid {
+    gap: 32px 12px;
+  }
+
+  .category-item h3 {
+    font-size: 11px;
+  }
+
+  /* Concept Sections Small Mobile */
+  .concept-wrapper, .design-wrapper {
+    padding: 48px 0;
+  }
+
+  .concept-wrapper {
+    margin-top: 60px;
+  }
+
+  .concept-section {
+    padding: 0 20px;
+    gap: 32px;
+  }
+
+  .concept-image {
+    height: 260px;
+  }
+
+  .concept-text h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .concept-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .btn-link {
+    font-size: 12px;
+  }
+
+  /* CTA Section Small Mobile */
+  .cta-section {
+    padding: 48px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    font-size: 13px;
+    width: 100%;
+    max-width: 280px;
   }
 }
 

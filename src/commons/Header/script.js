@@ -65,6 +65,39 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       }
+
+      // Lógica do Menu Mobile
+      const mobileMenuToggle = headerContainer.querySelector('.mobile-menu-toggle');
+      const mainNav = headerContainer.querySelector('.main-nav');
+      
+      if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenuToggle.classList.toggle('active');
+          mainNav.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Fechar menu ao clicar em um link
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+
+        // Fechar menu ao clicar no overlay (body)
+        document.body.addEventListener('click', (e) => {
+          if (document.body.classList.contains('menu-open') && 
+              !mainNav.contains(e.target) && 
+              !mobileMenuToggle.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      }
     })
     .catch((error) => {
       console.error("Erro ao carregar o header:", error);
