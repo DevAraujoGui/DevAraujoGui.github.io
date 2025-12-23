@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!footer) return;
 
   const footerPath = window.location.pathname.endsWith('index.html') && !window.location.pathname.includes('/src/') 
-    ? "src/commons/Footer/footer.html" 
-    : "../../commons/Footer/footer.html";
+    ? "src/commons/Footer/index.html" 
+    : "../../commons/Footer/index.html";
 
   fetch(footerPath)
     .then((response) => response.text())
