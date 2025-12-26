@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector(".site-footer");
   if (!footer) return;
 
-  const isRoot = window.location.pathname === '/' || 
-                 window.location.pathname.endsWith('/index.html') || 
-                 window.location.pathname.endsWith('/') && !window.location.pathname.includes('/src/');
+  // Melhorado para detectar corretamente subpastas mesmo se o arquivo se chamar index.html
+  const isRoot = !window.location.pathname.includes('/src/pages/');
 
   const footerPath = isRoot 
     ? "src/commons/Footer/index.html" 

@@ -34,9 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!headerContainer) return;
 
   // Tenta carregar o header de dois caminhos possíveis (raiz ou subpasta)
-  const isRoot = window.location.pathname === '/' || 
-                 window.location.pathname.endsWith('/index.html') || 
-                 window.location.pathname.endsWith('/') && !window.location.pathname.includes('/src/');
+  // Melhorado para detectar corretamente subpastas mesmo se o arquivo se chamar index.html
+  const isRoot = !window.location.pathname.includes('/src/pages/');
   
   const headerPath = isRoot 
     ? "src/commons/Header/index.html" 
