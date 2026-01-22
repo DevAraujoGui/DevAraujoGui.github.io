@@ -2,27 +2,150 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
-    <title>Godoi - Sobre Nós</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godoi | Sobre Nós - Essência & Design</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="../../commons/Header/styles.css">
     <link rel="stylesheet" href="../../commons/Footer/styles.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <!-- Header Container (Loaded via JS) -->
     <div class="site-header-container"></div>
 
     <main>
-      <section id="sobre-nos">
-        <h1>Sobre Nós</h1>
+      <!-- Hero Section: Impactful Introduction -->
+      <section class="about-hero">
+        <div class="hero-content fade-up">
+          <span class="eyebrow">Nossa Essência</span>
+          <h1>Design que Transcende<br>o Ambiente</h1>
+          <p>Redefinindo o conceito de luxo para áreas externas com sofisticação, conforto e durabilidade incomparáveis.</p>
+        </div>
+        <div class="scroll-indicator">
+          <div class="mouse"></div>
+        </div>
       </section>
+
+      <!-- Story Section: Split Layout (Text + Image Grid) -->
+      <section class="story-section container">
+        <div class="story-grid">
+          <div class="story-content fade-right">
+            <span class="section-tag">Nossa Jornada</span>
+            <h2>A Arte de Criar<br>Momentos Únicos</h2>
+            <div class="separator-line"></div>
+            <p>
+              Na Godoi, acreditamos que o mobiliário externo não deve ser apenas funcional, mas uma extensão da alma da casa. 
+              Nossa paixão reside em curar peças que convidam ao relaxamento e à celebração da vida ao ar livre.
+            </p>
+            <p>
+              Cada coleção é fruto de uma busca incessante por materiais nobres e formas orgânicas que dialogam harmoniosamente com a natureza.
+              Do esboço inicial ao acabamento final, prezamos pela excelência em cada detalhe.
+            </p>
+            <a href="../2-Pagina produtos/index.html" class="btn-text">
+              Explorar Coleções <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="story-visuals fade-left">
+            <!-- Collage similar to the reference "Join our team" image grid -->
+            <div class="collage-grid">
+              <div class="collage-item item-main">
+                <img src="../../assets/products/sketch.png" alt="Esboço de Design">
+              </div>
+              <div class="collage-item item-secondary">
+                <img src="../../assets/products/carving.png" alt="Artesanato em Madeira">
+              </div>
+              <div class="collage-item item-tertiary">
+                <img src="../../assets/products/finish.png" alt="Acabamento Premium">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values Section: Dark Background with Icons (Reference "Why work with us") -->
+      <section class="values-section">
+        <div class="container">
+          <div class="values-header text-center">
+            <h2>Por Que Godoi?</h2>
+            <p>Compromisso com a excelência em cada fibra.</p>
+          </div>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="icon-box">
+                <i class="fas fa-pencil-ruler"></i>
+              </div>
+              <h3>Design Autoral</h3>
+              <p>Peças assinadas que combinam estética contemporânea com ergonomia superior, criando verdadeiras esculturas funcionais.</p>
+            </div>
+
+            <div class="value-card">
+              <div class="icon-box">
+                <i class="fas fa-gem"></i> <!-- Diamond for quality/material -->
+              </div>
+              <h3>Materiais Nobres</h3>
+              <p>Seleção rigorosa de madeiras certificadas, alumínio naval e tecidos de alta performance resistentes às intempéries.</p>
+            </div>
+
+            <div class="value-card">
+              <div class="icon-box">
+                <i class="fas fa-hands-holding-circle"></i> <!-- Craft/Care -->
+              </div>
+              <h3>Artesanato & Tecnologia</h3>
+              <p>A união perfeita entre a precisão da tecnologia de ponta e o toque insubstituível do acabamento manual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Image Banner Section (Craftsmanship focus) -->
+      <section class="banner-section">
+        <div class="banner-wrapper">
+          <img src="../../assets/products/assembly.png" alt="Processo de Montagem" class="parallax-img">
+          <div class="banner-overlay">
+            <div class="banner-content">
+              <h2>O Detalhe é a Nossa Assinatura</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer"></footer>
+    
+    <!-- Scripts -->
     <script src="../../commons/Header/script.js"></script>
     <script src="../../commons/Footer/script.js"></script>
+    <script>
+      // Simple Intersection Observer for scroll animations
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer_options = {
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observer_options);
+        
+        document.querySelectorAll('.fade-up, .fade-right, .fade-left').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>
-
-
