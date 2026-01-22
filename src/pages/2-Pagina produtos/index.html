@@ -2,26 +2,435 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
-    <title>Godoi - Produtos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godoi - Coleção Exclusiva</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../styles.css"> <!-- Root styles for base tokens -->
+    <link rel="stylesheet" href="styles.css"> <!-- Local overrides -->
     <link rel="stylesheet" href="../../commons/Header/styles.css">
     <link rel="stylesheet" href="../../commons/Footer/styles.css">
   </head>
   <body>
+    <!-- Header Container -->
     <div class="site-header-container"></div>
 
     <main>
-      <section id="produtos">
-        <h1>Produtos</h1>
+      <!-- Spectacular Styled Hero -->
+      <section class="page-hero">
+        <div class="hero-bg-decoration"></div>
+        <div class="container hero-content fade-up">
+          <div class="hero-card">
+            <span class="subtitle-decoration">Curadoria Godoi 2026</span>
+            <h1>Catálogo de <span class="highlight-text">Peças Exclusivas</span></h1>
+            <div class="hero-divider"></div>
+            <p>Explore nossa coleção completa de mobiliário outdoor premium. Design que une a tradição da marcenaria com a inovação náutica.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW Transition Divider -->
+      <div class="hero-transition-divider fade-up">
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Smart Filter Bar (Sticky) -->
+      <div class="filter-sticky-wrapper">
+        <div class="filter-bar container fade-up delay-1">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="cadeiras">Cadeiras</button>
+          <button class="filter-btn" data-filter="mesas_jantar">Mesas de Jantar</button>
+          <button class="filter-btn" data-filter="poltronas">Poltronas</button>
+          <button class="filter-btn" data-filter="sofas">Sofás</button>
+          <button class="filter-btn" data-filter="bancos">Bancos</button>
+          <button class="filter-btn" data-filter="espreguicadeiras">Espreguiçadeiras</button>
+          <button class="filter-btn" data-filter="balancos">Balanços</button>
+          <button class="filter-btn" data-filter="ombrelones">Ombrelones</button>
+          <button class="filter-btn" data-filter="mesas_centro">Mesas de Centro</button>
+          <button class="filter-btn" data-filter="pufes">Pufes</button>
+        </div>
+      </div>
+
+      <!-- Products Grid - Masonry Style Feel -->
+      <section class="products-section container">
+        <div class="products-grid">
+          
+          <!-- Product Card 1 -->
+          <article class="product-card fade-up delay-2" data-category="poltronas" onclick="openProductModal('Poltrona Meridian', 'A Poltrona Meridian é a definição de abraço. Com sua estrutura arredondada em alumínio e trama em corda náutica, ela oferece um conforto inigualável.')">
+            <div class="card-badge">Novo</div>
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Poltrona Meridian">
+              <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Poltronas</span>
+              <h3>Poltrona Meridian</h3>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card fade-up delay-3" data-category="sofas" onclick="openProductModal('Sofá Modular Horizon', 'Versatilidade é a chave do Sofá Horizon. Módulos que se conectam para criar o layout perfeito para seu terraço.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Sofá Modular Horizon">
+              <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Sofás</span>
+              <h3>Sofá Modular Horizon</h3>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card fade-up delay-4" data-category="mesas_jantar" onclick="openProductModal('Mesa de Jantar Oásis', 'Reúna a família ao redor da Mesa Oásis. Tampo em madeira maciça tratada e base geométrica em alumínio.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Mesa de Jantar Oásis">
+              <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Mesas de Jantar</span>
+              <h3>Mesa de Jantar Oásis</h3>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card fade-up delay-2" data-category="espreguicadeiras" onclick="openProductModal('Espreguiçadeira Solar', 'Máximo relaxamento com a Espreguiçadeira Solar. Tela sling que respira e não esquenta ao sol.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Espreguiçadeira Solar">
+              <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Espreguiçadeiras</span>
+              <h3>Espreguiçadeira Solar</h3>
+            </div>
+          </article>
+
+          <!-- Product Card 5 -->
+          <article class="product-card fade-up delay-3" data-category="balancos" onclick="openProductModal('Balanço Ninho', 'Um refúgio particular. O Balanço Ninho é a peça statement que seu jardim precisa.')">
+             <div class="card-badge sale">Destaque</div>
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Balanço Ninho">
+              <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Balanços</span>
+              <h3>Balanço Ninho</h3>
+            </div>
+          </article>
+
+          <!-- Product Card 6 -->
+          <article class="product-card fade-up delay-4" data-category="ombrelones" onclick="openProductModal('Ombrelone Royal', 'Proteção e elegância. O Ombrelone Royal gira 360 graus para acompanhar o sol o dia todo.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Ombrelone Royal">
+               <div class="overlay-trigger">
+                 <span class="btn-icon">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                 </span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Ombrelones</span>
+              <h3>Ombrelone Royal</h3>
+            </div>
+          </article>
+
+          <!-- INTERNAL PARALLAX DIVIDER (After 6 Products) -->
+          <div class="parallax-divider fade-up internal-divider" data-type="divider">
+            <div class="parallax-content">
+              <p>Tradição & Inovação</p>
+              <h2>Conforto que transcende o tempo</h2>
+            </div>
+          </div>
+          
+           <!-- Product Card 7 -->
+          <article class="product-card fade-up delay-2" data-category="sofas" onclick="openProductModal('Sofá Canto Zen', 'Minimalismo e conforto. O Sofá Zen traz linhas retas e almofadas profundas para seu descanso.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Sofá Canto Zen">
+               <div class="overlay-trigger">
+                 <span class="btn-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Sofás</span>
+              <h3>Sofá Canto Zen</h3>
+            </div>
+          </article>
+          
+           <!-- Product Card 8 -->
+          <article class="product-card fade-up delay-3" data-category="cadeiras" onclick="openProductModal('Cadeira Bistro', 'Leveza e praticidade. Empilhável e resistente, ideal para varandas gourmet.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Cadeira Bistro">
+               <div class="overlay-trigger">
+                 <span class="btn-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Cadeiras</span>
+              <h3>Cadeira Bistro</h3>
+            </div>
+          </article>
+          
+          <!-- Product Card 9 -->
+          <article class="product-card fade-up delay-2" data-category="mesas_centro" onclick="openProductModal('Mesa Centro Stone', 'O complemento perfeito. Design orgânico que traz a natureza para perto.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Mesa Centro Stone">
+               <div class="overlay-trigger">
+                 <span class="btn-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Mesas de Centro</span>
+              <h3>Mesa Centro Stone</h3>
+            </div>
+          </article>
+          
+          <!-- Product Card 10 -->
+          <article class="product-card fade-up delay-3" data-category="pufes" onclick="openProductModal('Pufe Cube', 'Versátil e divertido. Use como assento extra ou apoio para pés.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Pufe Cube">
+               <div class="overlay-trigger">
+                 <span class="btn-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Pufes</span>
+              <h3>Pufe Cube</h3>
+            </div>
+          </article>
+          
+          <!-- Product Card 11 -->
+          <article class="product-card fade-up delay-4" data-category="bancos" onclick="openProductModal('Banco Madeira Rústica', 'Robustez e durabilidade. Perfeito para jardins e áreas de convívio.')">
+            <div class="card-image">
+              <img src="../../assets/products/final.png" alt="Banco Madeira Rústica">
+               <div class="overlay-trigger">
+                 <span class="btn-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></span>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="category-tag">Bancos</span>
+              <h3>Banco Rústico</h3>
+            </div>
+          </article>
+
+        </div> <!-- End of products-grid -->
+
+        </div> <!-- End of products-grid -->
+
+        <!-- DECORATIVE DIVIDERS (Remained Material Showcase at bottom) -->
+        <div class="dividers-footer">
+
+          <div class="material-showcase fade-up" data-type="divider">
+              <div class="material-item">
+                  <span class="icon">⚓</span>
+                  <h4>Corda Náutica</h4>
+                  <p>Tramas feitas à mão com polipropileno de alta resistência.</p>
+              </div>
+              <div class="material-item">
+                  <span class="icon">🌲</span>
+                  <h4>Madeira Teca</h4>
+                  <p>O ouro das florestas, naturalmente resistente à umidade.</p>
+              </div>
+              <div class="material-item">
+                  <span class="icon">🛡️</span>
+                  <h4>Alumínio</h4>
+                  <p>Estruturas leves com pintura eletrostática anti-corrosão.</p>
+              </div>
+              <div class="material-item">
+                  <span class="icon">☀️</span>
+                  <h4>Tecidos</h4>
+                  <p>Tramas impermeáveis com proteção contra raios solares.</p>
+              </div>
+          </div>
+        </div>
       </section>
     </main>
+
+    <!-- Product Modal Overlay -->
+    <div id="productModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeProductModal()">&times;</button>
+        <div class="modal-layout">
+          <div class="modal-image">
+            <img src="../../assets/products/final.png" alt="Detalhe do Produto">
+          </div>
+          <div class="modal-details">
+            <span class="modal-subtitle">Coleção 2026</span>
+            <h2 id="modalTitle">Nome do Produto</h2>
+            <div class="modal-divider"></div>
+            <p id="modalDesc">Descrição detalhada do produto vai aqui.</p>
+            
+            <div class="modal-specs">
+              <div class="spec-item">
+                <span class="label">Material</span>
+                <span class="value">Premium</span>
+              </div>
+               <div class="spec-item">
+                <span class="label">Garantia</span>
+                <span class="value">5 Anos</span>
+              </div>
+               <div class="spec-item">
+                <span class="label">Entrega</span>
+                <span class="value">30 Dias</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/5585997642864" target="_blank" class="modal-cta">
+              <span>Consultar Disponibilidade</span>
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="margin-left:8px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer"></footer>
     <script src="../../commons/Header/script.js"></script>
     <script src="../../commons/Footer/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // --- 1. Animation Observer (Fade Up) ---
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.fade-up');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // --- 2. Filter Logic (Smooth & Dynamic) ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productsGrid = document.querySelector('.products-grid');
+        const cards = Array.from(document.querySelectorAll('.product-card'));
+        const internalDivider = document.querySelector('.internal-divider');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            
+            // UI State
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 1. First, hide everything with a slight fade
+            cards.forEach(card => {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(10px)';
+            });
+            internalDivider.style.opacity = '0';
+
+            // 2. Wait for fade out, then reorganize
+            setTimeout(() => {
+              let visibleCount = 0;
+              let lastVisibleCard = null;
+
+              cards.forEach((card) => {
+                const category = card.getAttribute('data-category');
+                const isMatch = filter === 'all' || category === filter;
+
+                if (isMatch) {
+                  card.style.display = 'block';
+                  visibleCount++;
+                  lastVisibleCard = card;
+                  
+                  // Position logic for the banner
+                  if (visibleCount === 6) {
+                    productsGrid.insertBefore(internalDivider, card.nextSibling);
+                  }
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+
+              // If less than 6 items, place banner at the end of visible items
+              if (visibleCount < 6 && lastVisibleCard) {
+                productsGrid.insertBefore(internalDivider, lastVisibleCard.nextSibling);
+              } else if (visibleCount === 0) {
+                 // Even if no items, maybe keep divider at start? 
+                 // Usually there will be items, but let's be safe.
+                 productsGrid.appendChild(internalDivider);
+              }
+
+              // Final Show
+              internalDivider.style.display = 'flex';
+              
+              // 3. Fade back in
+              setTimeout(() => {
+                cards.forEach(card => {
+                  if (card.style.display === 'block') {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                  }
+                });
+                internalDivider.style.opacity = '1';
+              }, 50);
+
+            }, 300); // Wait for cards to fade out
+          });
+        });
+
+
+        // --- 3. Modal Logic ---
+        window.openProductModal = function(title, description) {
+          const modal = document.getElementById('productModal');
+          const modalTitle = document.getElementById('modalTitle');
+          const modalDesc = document.getElementById('modalDesc');
+
+          modalTitle.textContent = title;
+          modalDesc.textContent = description;
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+
+        window.closeProductModal = function() {
+          const modal = document.getElementById('productModal');
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        const modal = document.getElementById('productModal');
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) window.closeProductModal();
+          });
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            window.closeProductModal();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
