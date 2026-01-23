@@ -83,7 +83,7 @@ img {
 /* Scrolled State (Sticky) */
 .site-header.header-scrolled {
   position: fixed;
-  background: rgba(250, 249, 246, 0.90); /* Ivory Glass */
+  background: rgba(250, 249, 246, 0.70); /* Ivory Glass */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   padding-top: 24px;

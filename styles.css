@@ -26,16 +26,17 @@ body {
 
 /* Header Overlay (Homepage Specific) */
 /* Header Overlay (Homepage Specific) */
+/* Header Overlay (Homepage Specific) */
 .site-header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
   backdrop-filter: none;
   border-bottom: none;
   z-index: 100;
-  padding-top: 32px; /* Dando um pouco mais de ar no topo */
+  padding-top: 32px; 
 }
 
 /* Força o texto do header a ser branco nesta página para contraste */
@@ -50,15 +51,14 @@ body {
 }
 
 /* Estado Scrolled (Sticky do JS) */
-/* Estado Scrolled (Sticky do JS) */
 .site-header.header-scrolled {
   position: fixed;
-  background: rgba(250, 249, 246, 0.90); /* Marfim Glass um pouco mais transparente */
+  background: rgba(250, 249, 246, 0.95); /* Ivory Glass Premium */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  padding-top: 24px; /* Retorna ao padding original */
+  padding-top: 24px; 
   padding-bottom: 24px;
-  background-color: rgba(250, 249, 246, 0.70) !important;
+  background-color: rgba(250, 249, 246, 0.90) !important;
   transition: all 0.3s ease;
 }
 
@@ -69,7 +69,7 @@ body {
 }
 
 .site-header.header-scrolled .logo-icon {
-  content: url("src/assets/logo/SVG/SÍMBOLO-4.svg"); /* Troca para a logo escura/alternativa */
+  content: url("src/assets/logo/SVG/SÍMBOLO-4.svg"); 
 }
 
 .site-header.header-scrolled .main-nav a::after {

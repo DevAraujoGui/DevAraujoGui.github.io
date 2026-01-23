@@ -95,7 +95,7 @@ body {
 }
 
 .site-header.header-scrolled {
-  background-color: rgba(250, 247, 240, 0.95) !important; /* Ivory with blur */
+  background-color: rgba(250, 247, 240, 0.7) !important; /* Ivory with blur */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,0,0,0.05) !important;
 }
@@ -111,7 +111,7 @@ body {
   justify-content: center;
   text-align: center;
   /* Stronger gradient for ultimate text contrast */
-  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../../assets/Pagina Inicial/Moveis-inicio.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../../assets/products/carving.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
