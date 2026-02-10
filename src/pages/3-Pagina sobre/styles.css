@@ -129,8 +129,9 @@ img {
   /* Using final.png as background or moveis-inicio if preferred. Using final.png for variety as requested */
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('../../assets/products/final.png');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   color: #FFFFFF;
   padding: 0 24px;
 }
@@ -481,6 +482,15 @@ img {
 }
 
 @media (max-width: 768px) {
+  .about-hero {
+    height: 100vh;
+    min-height: 550px;
+    background-attachment: scroll; /* Remove parallax no mobile */
+    background-position: center center;
+    background-size: cover;
+    padding: 180px 24px 80px;
+  }
+
   .about-hero h1 {
     font-size: 36px;
   }
@@ -512,5 +522,25 @@ img {
   
   .banner-content h2 {
     font-size: 24px;
+  }
+}
+
+/* Ajuste específico para dispositivos móveis em modo paisagem */
+@media (max-width: 768px) and (orientation: landscape) {
+  .about-hero {
+    height: 100vh;
+    min-height: 450px;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    padding: 120px 24px 60px;
+  }
+
+  .about-hero h1 {
+    font-size: 32px;
+  }
+
+  .about-hero p {
+    font-size: 14px;
   }
 }
