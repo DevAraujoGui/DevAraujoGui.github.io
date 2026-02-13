@@ -23,7 +23,7 @@ body {
     "Segoe UI",
     sans-serif;
   color: #111111;
-  background-color: #ffffff;
+  background-color: #e5e0d8;
   width: auto;
   max-width: 100%;
   overflow-x: hidden;
@@ -397,7 +397,7 @@ body {
 
 .design-wrapper {
   width: 100%;
-  background-color: #ffffff; /* Fundo Branco para alternar */
+  background-color: #e5e0d8; /* Fundo Branco para alternar */
   padding: 100px 0;
 }
 
