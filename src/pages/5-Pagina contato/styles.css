@@ -293,11 +293,18 @@ img {
   border-color: var(--color-white);
 }
 
-/* Map Preview */
+/* Maps Container */
+.maps-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto; /* Push to bottom if space permits */
+}
+
 .map-preview {
   display: block;
   width: 100%;
-  height: 180px;
+  height: 160px; /* Slightly shorter to fit two */
   border-radius: 4px;
   overflow: hidden;
   position: relative;
