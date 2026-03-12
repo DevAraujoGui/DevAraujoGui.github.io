@@ -127,7 +127,7 @@ img {
   justify-content: center;
   text-align: center;
   /* Using final.png as background or moveis-inicio if preferred. Using final.png for variety as requested */
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('../../assets/products/final.png');
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('heroSobre.jpeg');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;

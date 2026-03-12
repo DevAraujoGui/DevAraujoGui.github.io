@@ -111,7 +111,7 @@ body {
   justify-content: center;
   text-align: center;
   /* Stronger gradient for ultimate text contrast */
-  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../../assets/products/carving.png');
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('hero.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
