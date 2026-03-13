@@ -11,15 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "src/commons/Footer/index.html" 
     : "../src/commons/Footer/index.html";
 
-  fetch(footerPath)
+  fetch(`${footerPath}?v=${new Date().getTime()}`)
     .then((response) => response.text())
     .then((html) => {
-      // Ajuste de caminhos se estiver na raiz
-      if (isRoot) {
-        html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
-      } else {
-        html = html.replace(/src="\.\.\/\.\.\//g, 'src="../src/');
-      }
+      const rootPath = isRoot ? "" : "../";
+      
+      // Substitui o placeholder {{ROOT}} pelo caminho correto
+      html = html.replaceAll('{{ROOT}}', rootPath);
+      
       footer.innerHTML = html;
 
       // Animação de entrada dos elementos do footer

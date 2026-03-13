@@ -42,29 +42,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!headerContainer) return;
 
-  const isRoot = !window.location.pathname.toLowerCase().includes('/produtos/') && 
-                 !window.location.pathname.toLowerCase().includes('/sobre/') && 
-                 !window.location.pathname.toLowerCase().includes('/contato/');
+  const pathLower = window.location.pathname.toLowerCase();
+  const isRoot = !pathLower.includes('/produtos') && 
+                 !pathLower.includes('/sobre') && 
+                 !pathLower.includes('/contato');
   
   const headerPath = isRoot 
     ? "src/commons/Header/index.html" 
     : "../src/commons/Header/index.html";
 
-  fetch(headerPath)
+  // Adiciona um timestamp para evitar cache durante o desenvolvimento
+  fetch(`${headerPath}?v=${new Date().getTime()}`)
     .then((response) => response.text())
     .then((html) => {
       const rootPath = isRoot ? "" : "../";
       
-      // Ajustar caminhos de imagens e links
-      if (isRoot) {
-        html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
-        html = html.replace(/href="\.\.\/\.\.\/\.\.\/"/g, 'href="./"');
-        html = html.replace(/href="\.\.\/\.\.\//g, 'href="');
-      } else {
-        html = html.replace(/src="\.\.\/\.\.\//g, 'src="../src/');
-        html = html.replace(/href="\.\.\/\.\.\/\.\.\/"/g, 'href="../"');
-        html = html.replace(/href="\.\.\/\.\.\//g, 'href="../');
-      }
+      // Substitui o placeholder {{ROOT}} pelo caminho correto baseado na profundidade do arquivo
+      html = html.replaceAll('{{ROOT}}', rootPath);
       
       headerContainer.innerHTML = html;
       
