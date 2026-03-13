@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Forçar o scroll para o topo ao recarregar
+  // --- Clean URL logic (removes index.html from URL bar) ---
+  (function () {
+    const path = window.location.pathname;
+    if (path.endsWith("index.html")) {
+      const newPath = path.replace("index.html", "");
+      window.history.replaceState({}, "", newPath);
+    }
+  })();
+
+  // Forçar o scroll para o topo ao carregar
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
@@ -33,22 +42,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!headerContainer) return;
 
-  // Tenta carregar o header de dois caminhos possíveis (raiz ou subpasta)
-  // Melhorado para detectar corretamente subpastas mesmo se o arquivo se chamar index.html
-  const isRoot = !window.location.pathname.includes('/src/pages/');
+  const isRoot = !window.location.pathname.toLowerCase().includes('/produtos/') && 
+                 !window.location.pathname.toLowerCase().includes('/sobre/') && 
+                 !window.location.pathname.toLowerCase().includes('/contato/');
   
   const headerPath = isRoot 
     ? "src/commons/Header/index.html" 
-    : "../../commons/Header/index.html";
+    : "../src/commons/Header/index.html";
 
   fetch(headerPath)
     .then((response) => response.text())
     .then((html) => {
-      // Se estivermos na raiz, precisamos ajustar os caminhos internos do index.html (header)
+      const rootPath = isRoot ? "" : "../";
+      
+      // Ajustar caminhos de imagens e links
       if (isRoot) {
         html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
-        html = html.replace(/href="\.\.\/\.\.\/\.\.\/index\.html"/g, 'href="index.html"');
-        html = html.replace(/href="\.\.\//g, 'href="src/pages/');
+        html = html.replace(/href="\.\.\/\.\.\/\.\.\/"/g, 'href="./"');
+        html = html.replace(/href="\.\.\/\.\.\//g, 'href="');
+      } else {
+        html = html.replace(/src="\.\.\/\.\.\//g, 'src="../src/');
+        html = html.replace(/href="\.\.\/\.\.\/\.\.\/"/g, 'href="../"');
+        html = html.replace(/href="\.\.\/\.\.\//g, 'href="../');
       }
       
       headerContainer.innerHTML = html;

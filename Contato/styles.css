@@ -124,7 +124,7 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('../../assets/products/finish.png'); /* Using shared asset */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('finish.png'); /* Using shared asset */
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;

@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!footer) return;
 
   // Melhorado para detectar corretamente subpastas mesmo se o arquivo se chamar index.html
-  const isRoot = !window.location.pathname.includes('/src/pages/');
+  const isRoot = !window.location.pathname.toLowerCase().includes('/produtos/') && 
+                 !window.location.pathname.toLowerCase().includes('/sobre/') && 
+                 !window.location.pathname.toLowerCase().includes('/contato/');
 
   const footerPath = isRoot 
     ? "src/commons/Footer/index.html" 
-    : "../../commons/Footer/index.html";
+    : "../src/commons/Footer/index.html";
 
   fetch(footerPath)
     .then((response) => response.text())
@@ -15,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Ajuste de caminhos se estiver na raiz
       if (isRoot) {
         html = html.replace(/src="\.\.\/\.\.\//g, 'src="src/');
+      } else {
+        html = html.replace(/src="\.\.\/\.\.\//g, 'src="../src/');
       }
       footer.innerHTML = html;
 
