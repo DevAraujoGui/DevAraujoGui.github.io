@@ -858,8 +858,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  .page-hero {
+    background-attachment: scroll;
+    min-height: 400px;
+    height: 100vh;
+    padding: 180px 24px 80px;
+  }
+
   .page-hero h1 {
-    font-size: 40px;
+    font-size: 36px;
   }
   
   .products-grid {
@@ -880,6 +887,15 @@ body {
   .promo-content {
     max-width: 100%;
     margin-bottom: 24px;
+  }
+
+  .modal-overlay {
+    align-items: flex-start;
+  }
+
+  .modal-content {
+    max-height: none;
+    margin: 40px auto;
   }
 
   .modal-layout {
