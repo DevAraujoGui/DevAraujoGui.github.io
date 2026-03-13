@@ -99,7 +99,7 @@ img {
 }
 
 .site-header.header-scrolled .logo-icon {
-  content: url("../../assets/logo/SVG/SÍMBOLO-4.svg"); 
+  content: url("../src/assets/logo/SVG/SÍMBOLO-4.svg"); 
 }
 
 .site-header.header-scrolled .main-nav a::after {
