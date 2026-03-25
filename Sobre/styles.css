@@ -341,7 +341,7 @@ img {
 }
 
 .values-header h2 {
-  font-family: var(--font-primary);
+  font-family: var(--font-display);
   font-size: 36px;
   margin-bottom: 16px;
   color: var(--color-ivory);
