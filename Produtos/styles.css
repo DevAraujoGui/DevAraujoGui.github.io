@@ -7,7 +7,7 @@
   --color-pool-blue: #4FB3C6;
   --color-pool-blue-dim: #3a8a9a;
   --color-grass-green: #5D9B58;
-  --color-terracotta: #E07A5F;
+  --color-terracotta: #4FB3C6;
   --color-sand: #E6E2D3;
   --color-charcoal: #2C3333;
   
@@ -562,16 +562,23 @@ body {
 }
 
 .card-content h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
+  font-family: var(--font-primary);
+  font-size: 20px;
   color: var(--color-text-dark);
   font-weight: 500;
-  margin: 0;
-  transition: color 0.3s ease;
+  margin: 10px 0 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 51, 51, 0.2);
+  padding: 10px 24px;
+  display: inline-block;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
 }
 
 .product-card:hover .card-content h3 {
   color: var(--color-pool-blue-dim);
+  border-color: var(--color-pool-blue-dim);
+  background: rgba(79, 179, 198, 0.05);
 }
 
 .card-description {
